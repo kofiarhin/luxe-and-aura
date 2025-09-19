@@ -5,15 +5,17 @@
   padding: 1.5rem 4vw;
   position: sticky;
   top: 0;
-  z-index: 10;
-  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 15;
+  background-color: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(15, 15, 16, 0.08);
+  gap: 2rem;
 }
 
 .branding {
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
 }
 
 .logo {
@@ -29,34 +31,71 @@
   color: rgba(15, 15, 16, 0.6);
 }
 
-.navigation {
-  display: flex;
-  gap: 1rem;
+.desktopNavigation {
+  margin-left: auto;
 }
 
-.link {
-  font-size: 0.95rem;
+.menuToggle {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  border: none;
+  background: #0f0f10;
+  color: #ffffff;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding-bottom: 0.25rem;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.link:hover,
-.active {
-  color: #9c6bff;
-  border-color: #9c6bff;
+.menuToggle:hover,
+.menuToggle:focus-visible {
+  background: #1f1f20;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.toggleLabel {
+  font-weight: 600;
+}
+
+.toggleIcon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 1.25rem;
+}
+
+.toggleIcon span {
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 960px) {
+  .desktopNavigation {
+    display: none;
+  }
+
+  .menuToggle {
+    display: inline-flex;
+  }
 }
 
 @media (max-width: 720px) {
   .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    padding: 1.25rem 4vw;
   }
+}
 
-  .navigation {
-    flex-wrap: wrap;
+@media (max-width: 520px) {
+  .tagline {
+    display: none;
   }
 }
