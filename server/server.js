@@ -1,12 +1,12 @@
-const http = require('http');
-const path = require('path');
-const dotenv = require('dotenv');
-const { connectDb } = require('./config/db');
-const createApp = require('./app');
+const http = require("http");
+const path = require("path");
+const dotenv = require("dotenv");
+const { connectDb } = require("./config/db");
+const createApp = require("./app");
 
-dotenv.config({ path: path.join(__dirname, '.env') });
+dotenv.config({ path: path.join(__dirname, ".env") });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 const mongoUri =
   process.env.MONGO_URI || process.env.MONGODB_URI || process.env.DATABASE_URL;
 
@@ -22,7 +22,7 @@ const startServer = async () => {
     });
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('Failed to start server', error);
+    console.error("Failed to start server", error);
     process.exit(1);
   }
 };
